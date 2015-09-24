@@ -87,7 +87,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                                         
                                         print("user signed up")
                                         
-                                        self.displayAlert("Signed Up!", message: "Welcome :)")
+                                        self.performSegueWithIdentifier("sendToLogin", sender: self)
                                         
                                     }
                                     

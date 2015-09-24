@@ -41,6 +41,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 print("user logged in")
                 
+                self.performSegueWithIdentifier("showTableView", sender: self)
+                
             } else {
                 
                 if let errorMessage = error?.userInfo["error"] as? String {
@@ -108,6 +110,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser()?.username != nil {
+            self.performSegueWithIdentifier("showTableView", sender: self)
+        }
     }
     
 

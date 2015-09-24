@@ -20,15 +20,15 @@
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		81BA81811A49E10C00E65899 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81801A49E10C00E65899 /* ParseUI.framework */; };
-		B319E2FA1B97C3E300D9A268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B319E2F91B97C3E300D9A268 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		B3983E471B9FB25E00F27D09 /* loginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3983E451B9FB25E00F27D09 /* loginButton.png */; settings = {ASSET_TAGS = (); }; };
-		B3983E481B9FB25E00F27D09 /* signUpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3983E461B9FB25E00F27D09 /* signUpButton.png */; settings = {ASSET_TAGS = (); }; };
-		B3983E4C1B9FB34700F27D09 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B3983E4B1B9FB34700F27D09 /* icon.png */; settings = {ASSET_TAGS = (); }; };
+		B319E2FA1B97C3E300D9A268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B319E2F91B97C3E300D9A268 /* LaunchScreen.storyboard */; };
+		B3983E471B9FB25E00F27D09 /* loginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3983E451B9FB25E00F27D09 /* loginButton.png */; };
+		B3983E481B9FB25E00F27D09 /* signUpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B3983E461B9FB25E00F27D09 /* signUpButton.png */; };
 		B3A494701BA24279000544CC /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A4946F1BA24279000544CC /* Contacts.framework */; };
-		B3FECE431BA1335600333020 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FECE411BA1335600333020 /* LogInViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B3FECE461BA140DD00333020 /* logIn.png in Resources */ = {isa = PBXBuildFile; fileRef = B3FECE451BA140DD00333020 /* logIn.png */; settings = {ASSET_TAGS = (); }; };
-		B3FECE481BA14A0000333020 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FECE471BA14A0000333020 /* SignUpViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B3FECE4A1BA14B6900333020 /* signUp.png in Resources */ = {isa = PBXBuildFile; fileRef = B3FECE491BA14B6900333020 /* signUp.png */; settings = {ASSET_TAGS = (); }; };
+		B3B630521BB3908A0096294D /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B630511BB3908A0096294D /* FriendListViewController.swift */; };
+		B3FECE431BA1335600333020 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FECE411BA1335600333020 /* LogInViewController.swift */; };
+		B3FECE461BA140DD00333020 /* logIn.png in Resources */ = {isa = PBXBuildFile; fileRef = B3FECE451BA140DD00333020 /* logIn.png */; };
+		B3FECE481BA14A0000333020 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FECE471BA14A0000333020 /* SignUpViewController.swift */; };
+		B3FECE4A1BA14B6900333020 /* signUp.png in Resources */ = {isa = PBXBuildFile; fileRef = B3FECE491BA14B6900333020 /* signUp.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +51,8 @@
 		B319E2F91B97C3E300D9A268 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3983E451B9FB25E00F27D09 /* loginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginButton.png; sourceTree = "<group>"; };
 		B3983E461B9FB25E00F27D09 /* signUpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signUpButton.png; sourceTree = "<group>"; };
-		B3983E4B1B9FB34700F27D09 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B3A4946F1BA24279000544CC /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		B3B630511BB3908A0096294D /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		B3FECE411BA1335600333020 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B3FECE451BA140DD00333020 /* logIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logIn.png; sourceTree = "<group>"; };
 		B3FECE471BA14A0000333020 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -105,9 +105,9 @@
 				B3FECE411BA1335600333020 /* LogInViewController.swift */,
 				B3FECE471BA14A0000333020 /* SignUpViewController.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
+				B3B630511BB3908A0096294D /* FriendListViewController.swift */,
 				B319E2F91B97C3E300D9A268 /* LaunchScreen.storyboard */,
 				B3983E451B9FB25E00F27D09 /* loginButton.png */,
-				B3983E4B1B9FB34700F27D09 /* icon.png */,
 				B3FECE491BA14B6900333020 /* signUp.png */,
 				B3FECE451BA140DD00333020 /* logIn.png */,
 				B3983E461B9FB25E00F27D09 /* signUpButton.png */,
@@ -215,7 +215,6 @@
 				B3983E481B9FB25E00F27D09 /* signUpButton.png in Resources */,
 				B3FECE461BA140DD00333020 /* logIn.png in Resources */,
 				B3FECE4A1BA14B6900333020 /* signUp.png in Resources */,
-				B3983E4C1B9FB34700F27D09 /* icon.png in Resources */,
 				81BA81501A49DA1800E65899 /* Main.storyboard in Resources */,
 				81BA81521A49DA1800E65899 /* Images.xcassets in Resources */,
 				B3983E471B9FB25E00F27D09 /* loginButton.png in Resources */,
@@ -246,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3B630521BB3908A0096294D /* FriendListViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				B3FECE481BA14A0000333020 /* SignUpViewController.swift in Sources */,
