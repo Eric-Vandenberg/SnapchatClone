@@ -28,9 +28,65 @@ class FriendListViewController: UITableViewController, UINavigationControllerDel
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+    
+    
+    func checkForMessage() {
+        
+        if PFUser.currentUser() != nil {
+        
+            var query = PFQuery(className: "Images")
+            query.whereKey("recipientUsername", equalTo: PFUser.currentUser()!.username!)
+            query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+                
+                if error != nil {
+                    
+                    print(error)
+                    
+                }
+                
+                if let pfobjects = objects {
+                    
+                    if pfobjects.count > 0 {
+                    
+                        var imageView: PFImageView = PFImageView()
+                        imageView.file = pfobjects[0]["photoFile"] as? PFFile
+                        imageView.loadInBackground({ (photo, error) -> Void in
+                            
+                            if error == nil {
+                                
+                                var sentUsername = "Unknown Username"
+                                
+                                if let username = pfobjects[0]["senderUsername"] as? String {
+                                    
+                                    sentUsername = username
+                                    
+                                    self.displayAlert("Incoming!", message: "Message from " + sentUsername)
+                                    
+                                }
+                                
+                            }
+                            
+                        })
+                    
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _ = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("checkForMessage"), userInfo: nil, repeats: true)
+        
+        
+        
+        
 
         var query = PFUser.query()!
         query.whereKey("username", notEqualTo: (PFUser.currentUser()!.username)!)
