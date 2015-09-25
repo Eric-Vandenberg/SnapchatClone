@@ -9,9 +9,25 @@
 import UIKit
 import Parse
 
-class FriendListViewController: UITableViewController {
+class FriendListViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var usernames = [String]()
+    var recipientUsername = ""
+    
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            
+            alert.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,12 +81,37 @@ class FriendListViewController: UITableViewController {
 
         cell.textLabel?.text = usernames[indexPath.row]
         // Configure the cell...
-        
-        print(usernames[indexPath.row])
 
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        recipientUsername = usernames[indexPath.row]
+        
+        var image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        image.allowsEditing = false
+        
+        self.presentViewController(image, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        var imageToSend = PFObject(className: "Images")
+        
+        imageToSend["photoFile"] = PFFile(name: "photo.jpg", data: UIImageJPEGRepresentation(image, 0.5)!)
+        imageToSend["senderUsername"] = PFUser.currentUser()?.username
+        imageToSend["recipientUsername"] = recipientUsername
+        imageToSend.saveInBackground()
+        
+        displayAlert("Success", message: "Image sent!")
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
