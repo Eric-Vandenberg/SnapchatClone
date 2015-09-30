@@ -60,7 +60,32 @@ class FriendListViewController: UITableViewController, UINavigationControllerDel
                                     
                                     sentUsername = username
                                     
-                                    self.displayAlert("Incoming!", message: "Message from " + sentUsername)
+                                    let alert = UIAlertController(title: "Incoming!", message: "Message from " + sentUsername, preferredStyle: UIAlertControllerStyle.Alert)
+                                    
+                                    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                                        
+                                        let backgroundFade = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+                                        backgroundFade.backgroundColor = UIColor.blackColor()
+                                        backgroundFade.alpha = 0.8
+                                        backgroundFade.tag = 10
+                                        backgroundFade.contentMode = UIViewContentMode.ScaleAspectFit
+                                        self.view.addSubview(backgroundFade)
+                                        
+                                        let displayedImage = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+                                        displayedImage.image = photo
+                                        displayedImage.tag = 10
+                                        displayedImage.contentMode = UIViewContentMode.ScaleAspectFit
+                                        self.view.addSubview(displayedImage)
+                                        
+                                        pfobjects[0].deleteInBackground()
+                                        
+                                        _ = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: Selector("hideMessage"), userInfo: nil, repeats: false)
+                                        
+                                    }))
+                                    
+                                    self.presentViewController(alert, animated: true, completion: nil)
+                                    
+                                    
                                     
                                 }
                                 
@@ -78,16 +103,26 @@ class FriendListViewController: UITableViewController, UINavigationControllerDel
         
     }
     
+    func hideMessage() {
+        
+        for subview in self.view.subviews {
+            
+            if subview.tag == 10 {
+                
+                subview.removeFromSuperview()
+                
+            }
+            
+        }
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         _ = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("checkForMessage"), userInfo: nil, repeats: true)
         
-        
-        
-        
-
         var query = PFUser.query()!
         query.whereKey("username", notEqualTo: (PFUser.currentUser()!.username)!)
         query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
@@ -164,6 +199,12 @@ class FriendListViewController: UITableViewController, UINavigationControllerDel
         imageToSend["senderUsername"] = PFUser.currentUser()?.username
         imageToSend["recipientUsername"] = recipientUsername
         imageToSend.saveInBackground()
+        
+        let acl = PFACL()
+        acl.setPublicReadAccess(true)
+        acl.setPublicWriteAccess(true)
+        
+        imageToSend.ACL = acl
         
         displayAlert("Success", message: "Image sent!")
         
