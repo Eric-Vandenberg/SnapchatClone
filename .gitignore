@@ -8,4 +8,4 @@ build
 *~.xib 
 .DS_Store 
 xcuserdata/
-APIKeys.plist
+Keys.plist
