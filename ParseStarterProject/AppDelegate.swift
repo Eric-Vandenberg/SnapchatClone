@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         
         var keys: NSDictionary?
+        var appId = "imrY9hgX4z5AQ4bF56hR8f12vm4OhbLw09if7qem"
+        var clientKey = "w8FKcN1IBdMvPE5CDVmycrs92Obyvpfjs34qCjqe"
         
         if let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist") {
             keys = NSDictionary(contentsOfFile: path)
